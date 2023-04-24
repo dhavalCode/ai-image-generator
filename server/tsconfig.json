@@ -1,0 +1,22 @@
+{
+  "extends": "@tsconfig/node16/tsconfig.json",
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "commonjs",
+    "sourceMap": true,
+    "outDir": "build",
+    "rootDir": "src",
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "*": ["node_modules/*"]
+    },
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "noUncheckedIndexedAccess": false,
+    "exactOptionalPropertyTypes": false
+  },
+
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}
