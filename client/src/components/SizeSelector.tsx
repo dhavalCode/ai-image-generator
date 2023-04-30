@@ -26,10 +26,7 @@ const SizeSelector: React.FC<SizeSelectorProps> = ({
                 <button
                     type="button"
                     onClick={() => handleOpen()}
-                    className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-                    id="menu-button"
-                    aria-expanded="true"
-                    aria-haspopup="true"
+                    className="inline-flex w-full mt-0 justify-center gap-x-1.5 rounded-md bg-white px-3 py-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
                 >
                     {value}
                     <svg
@@ -56,6 +53,7 @@ const SizeSelector: React.FC<SizeSelectorProps> = ({
                 <ul className="py-1" role="none">
                     {IMAGE_SIZES.map((size) => (
                         <li
+                            key={size.value}
                             className={`${
                                 value === size.value
                                     ? 'bg-gray-100 text-gray-900'

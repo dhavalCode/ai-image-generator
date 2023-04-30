@@ -61,3 +61,96 @@ export const promptList = [
     'A man wanders through the rainy streets of Tokyo, with bright neon signs, 50mm',
     'A Space Shuttle flying above Cape Town, digital art',
 ]
+
+export const dummyImages = [
+    {
+        id: '6445426245763ed282cb9637',
+        prompt: 'Hello Monkies',
+        imageUrl:
+            'http://res.cloudinary.com/dvtlge8ow/image/upload/v1682260575/oxlzlgbvwrprvze9blz1.png',
+    },
+    {
+        id: '644543bb543d4e5cc2760602',
+        prompt: 'Hello Monkies',
+        imageUrl:
+            'http://res.cloudinary.com/dvtlge8ow/image/upload/v1682260922/lf32qbcy37eyctnpe6hh.png',
+    },
+    {
+        id: '644d54315c63343cca1f75fa',
+        prompt: 'a bowl of soup that looks like a monster, knitted out of wool',
+        imageUrl:
+            'http://res.cloudinary.com/dvtlge8ow/image/upload/v1682789423/o20cyxhkiefxzuu7kmt1.png',
+    },
+    {
+        id: '644d55375c63343cca1f75fb',
+        prompt: 'An astronaut encountering an alien life form on a distant planet, photography',
+        imageUrl:
+            'http://res.cloudinary.com/dvtlge8ow/image/upload/v1682789687/tidflbqkuj9ebwcfxvxs.png',
+    },
+    {
+        id: '644d555e5c63343cca1f75fc',
+        prompt: 'A photograph of a cyborg exploring Tokyo at night, lomography',
+        imageUrl:
+            'http://res.cloudinary.com/dvtlge8ow/image/upload/v1682789725/ooodbsrvec3ns25u4yrq.png',
+    },
+    {
+        id: '644d55655c63343cca1f75fd',
+        prompt: 'A photograph of a cyborg exploring Tokyo at night, lomography',
+        imageUrl:
+            'http://res.cloudinary.com/dvtlge8ow/image/upload/v1682789733/abpw96gpkz5iprps4mkq.png',
+    },
+    {
+        id: '644d55735c63343cca1f75fe',
+        prompt: 'Two futuristic towers with a skybridge covered in lush foliage, digital art',
+        imageUrl:
+            'http://res.cloudinary.com/dvtlge8ow/image/upload/v1682789746/vxgxmeekm2eodbjuzulu.png',
+    },
+    {
+        id: '644d55765c63343cca1f75ff',
+        prompt: 'Two futuristic towers with a skybridge covered in lush foliage, digital art',
+        imageUrl:
+            'http://res.cloudinary.com/dvtlge8ow/image/upload/v1682789749/v8o7pme6sliy42vgup1g.png',
+    },
+    {
+        id: '644df1e860cbef6bec271c56',
+        prompt: 'a surrealist dream-like oil painting by Salvador Dalí of a cat playing checkers',
+        imageUrl:
+            'http://res.cloudinary.com/dvtlge8ow/image/upload/v1682829798/s8gftttdzi5vwonqetke.png',
+    },
+    {
+        id: '644df2e160cbef6bec271c57',
+        prompt: 'A Space Shuttle flying above Cape Town, digital art',
+        imageUrl:
+            'http://res.cloudinary.com/dvtlge8ow/image/upload/v1682830048/rsa3kblfikrfd1f7rxad.png',
+    },
+    {
+        id: '644e2a7a6e29a8f6fcdf8b30',
+        prompt: 'A Man falling in Love with his Computer, digital art',
+        imageUrl:
+            'http://res.cloudinary.com/dvtlge8ow/image/upload/v1682844280/w6jq7pcuzzwdcpinab1m.png',
+    },
+    {
+        id: '644e2ae86e29a8f6fcdf8b31',
+        prompt: 'A synthwave style sunset above the reflecting water of the sea, digital art',
+        imageUrl:
+            'http://res.cloudinary.com/dvtlge8ow/image/upload/v1682844391/tqfzz8xm6lyvlppc9laf.png',
+    },
+    {
+        id: '644e2f3a6e29a8f6fcdf8b32',
+        prompt: 'A Man falling in Love with his Computer, digital art',
+        imageUrl:
+            'http://res.cloudinary.com/dvtlge8ow/image/upload/v1682845497/zjzfk5h6njjyoxavqh9b.png',
+    },
+    {
+        id: '644e311a6e29a8f6fcdf8b33',
+        prompt: '3D render of a cute tropical fish in an aquarium on a dark blue background, digital art',
+        imageUrl:
+            'http://res.cloudinary.com/dvtlge8ow/image/upload/v1682845976/w1cq8vjfzujaest8ii4r.png',
+    },
+    {
+        id: '644e32456e29a8f6fcdf8b34',
+        prompt: 'A Synthwave Hedgehog, Blade Runner Cyberpunk',
+        imageUrl:
+            'http://res.cloudinary.com/dvtlge8ow/image/upload/v1682846276/rbyzbd3w0e71zprf4bcr.png',
+    },
+]

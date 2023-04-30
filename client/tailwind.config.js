@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 import colors from 'tailwindcss/colors'
-import daisyui from "daisyui";
+import daisyui from 'daisyui'
 import defaultTheme from 'tailwindcss/defaultTheme'
 
 export default {
@@ -40,4 +40,7 @@ export default {
         extend: {},
     },
     plugins: [daisyui],
+    daisyui: {  
+        darkTheme: 'light',
+    },
 }

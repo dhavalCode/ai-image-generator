@@ -16,9 +16,9 @@ function Header() {
                             className="mr-3 h-10 sm:h-12"
                             alt="Flowbite Logo"
                         />
-                        <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+                       {/*  <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
                             Image Generator
-                        </span>
+                        </span> */}
                     </a>
                     <div className="flex items-center lg:order-2 gap-x-3">
                         <a href="https://github.com/dhavalCode/ai-image-generator">
