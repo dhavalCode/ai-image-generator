@@ -9,7 +9,13 @@ export const fetchAllImages = async (
   res: Response
 ): Promise<void> => {
   try {
-    const images = await findAllImages()
+    const page = _req.query['page'] || 1
+
+    const limit = _req.query['limit'] || 20
+
+    const offset = Number(limit) * (Number(page) - 1)
+
+    const images = await findAllImages(+limit, offset)
 
     ResponseHandler.success(res, images)
   } catch (error) {
@@ -70,31 +76,7 @@ export const generateImage = async (
       prompt,
     })
 
-    ResponseHandler.created(res, { image, imageUrl: uploadedImage.url })
-  } catch (error: unknown) {
-    console.log('Error :', error)
-    ResponseHandler.serverError(res, error)
-  }
-}
-
-export const saveImage = async (req: Request, res: Response): Promise<void> => {
-  const { prompt } = req.body
-
-  if (!prompt || prompt === '') {
-    ResponseHandler.badRequest(res, '', 'Prompt is required.')
-  }
-
-  try {
-    const aiResponse = await openai.createImage({
-      prompt,
-      n: 1,
-      size: '1024x1024',
-      response_format: 'b64_json',
-    })
-
-    const image = aiResponse.data.data[0].b64_json
-
-    ResponseHandler.created(res, image)
+    ResponseHandler.created(res, { imageUrl: uploadedImage.url })
   } catch (error: unknown) {
     console.log('Error :', error)
     ResponseHandler.serverError(res, error)

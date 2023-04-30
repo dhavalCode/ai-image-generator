@@ -8,7 +8,8 @@ generator client {
 }
 
 model Image {
-  id       String @id @default(auto()) @map("_id") @db.ObjectId
-  prompt   String
-  imageUrl String
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  prompt    String
+  imageUrl  String
+  createdAt DateTime @default(now())
 }
