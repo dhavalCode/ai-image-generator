@@ -24,7 +24,7 @@ app.use(express.static('public'))
 
 app.use(cors())
 
-app.use("/image", imageRouter)
+app.use("/api/image", imageRouter)
 
 // app.use(errorHandler)
 
