@@ -11,7 +11,7 @@ export const fetchAllImages = async (
   try {
     const page = _req.query['page'] || 1
 
-    const limit = _req.query['limit'] || 20
+    const limit = _req.query['limit'] || 8
 
     const offset = Number(limit) * (Number(page) - 1)
 
