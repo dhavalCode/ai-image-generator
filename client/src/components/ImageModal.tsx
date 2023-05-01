@@ -41,17 +41,33 @@ const ImageModal: React.FC<ImageModalProps> = ({
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [open])
 
+    const clearModalContent = () => {
+        setTimeout(() => {
+            setDialogState({
+                ...dialogState,
+                open: false,
+                imgSrc: '',
+                prompt: '',
+            })
+        }, 500)
+    }
+
     const handleClickOutside = (event: MouseEvent) => {
         if (
             modalRef.current &&
             !modalRef.current.contains(event.target as Node)
         ) {
-            setDialogState({ ...dialogState, open: false })
+            setDialogState({
+                ...dialogState,
+                open: false,
+            })
+            clearModalContent()
         }
     }
 
     const handleClose = () => {
         setDialogState({ ...dialogState, open: false })
+        clearModalContent()
     }
 
     const handleDownload = (url: string | null) => {
@@ -85,16 +101,25 @@ const ImageModal: React.FC<ImageModalProps> = ({
             >
                 <div className="modal-box relative" ref={modalRef}>
                     <label
-                        className="btn btn-sm btn-circle absolute right-2 top-2"
+                        className="absolute btn-ghost btn-circle btn btn-sm btn-primary right-2 top-2 hover:scale-105 transition-all duration-150"
                         onClick={handleClose}
                     >
                         ✕
                     </label>
 
-                    <div className="text-center mt-7">
-                        <img src={imgSrc || ''} alt={prompt} />
+                    <div className="overflow-y-auto">
+                        <div className="mt-7 w-full flex justify-center">
+                            <img
+                                className="rounded-xl max-h-96"
+                                src={imgSrc || ''}
+                                alt={prompt}
+                            />
+                        </div>
+                        <p className="mb-7 mt-4 text-center text-base">
+                            {prompt}
+                        </p>
                     </div>
-                    <p className="my-2">{prompt}</p>
+
                     <div className="modal-action">
                         {isCopied ? (
                             <button

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Header from '../components/Header'
 import SizeSelector from '../components/SizeSelector'
 import Explore from '../components/sections/Explore'
-import { IMAGE_SIZES, dummyImages } from '../constant'
+import { IMAGE_SIZES } from '../constant'
 import { getSurprisePrompt } from '../utils'
 import imageService from '../services/image.service'
 import ImageModal from '../components/ImageModal'
@@ -92,10 +92,9 @@ function Home() {
                     </div>
                 </div>
             </div>
-            <Explore
-                images={dummyImages}
-                setImageModalState={setImageModalState}
-            />
+            <Explore setImageModalState={setImageModalState} />
+            {/* footer spacer  */}
+            <div className="mb-16"></div>
             <ImageModal
                 dialogState={imageModalState}
                 setDialogState={setImageModalState}

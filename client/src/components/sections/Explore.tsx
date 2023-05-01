@@ -1,15 +1,64 @@
-import React, { useEffect, useRef } from 'react'
-import classNames from 'classnames'
+import React, { useEffect, useState } from 'react'
 import { Image, ImageModalState } from '../types'
+import ImageService from '../../services/image.service'
+import { removeDuplicatesById } from '../../utils'
 
 // ------------------------------------------------------------
 
 interface ImageModalProps {
-    images: Image[]
     setImageModalState: React.Dispatch<React.SetStateAction<ImageModalState>>
 }
 
-const Explore: React.FC<ImageModalProps> = ({ images, setImageModalState }) => {
+const Explore: React.FC<ImageModalProps> = ({ setImageModalState }) => {
+    const [generatedImages, setGeneratedImages] = useState<Image[]>([])
+    const [isFetching, setIsFetching] = useState(false)
+    const [page, setPage] = useState(1)
+    const [isEnded, setIsEnded] = useState(false)
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleInfiniteScroll)
+
+        return () => window.removeEventListener('scroll', handleInfiniteScroll)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
+    useEffect(() => {
+        if (!isEnded && !isFetching) {
+            fetch()
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [page])
+
+    const handleInfiniteScroll = () => {
+        if (
+            window.innerHeight + document.documentElement.scrollTop + 1 >=
+            document.documentElement.scrollHeight
+        ) {
+            setPage((page) => page + 1)
+        }
+    }
+
+    const fetch = async () => {
+        try {
+            setIsFetching(true)
+            const res = await ImageService.fetchImages(page)
+
+            if (res.status === 201 || res.status === 200) {
+                const images: Image[] = res?.data?.data || []
+
+                setIsEnded(images.length === 0)
+
+                setGeneratedImages((preValue) =>
+                    removeDuplicatesById([...preValue, ...images])
+                )
+            }
+        } catch (error) {
+            console.log('Error : ', error)
+        } finally {
+            setIsFetching(false)
+        }
+    }
+
     return (
         <div className="container mx-auto max-w-screen-xl mt-14">
             <div className="mb-5">
@@ -23,28 +72,39 @@ const Explore: React.FC<ImageModalProps> = ({ images, setImageModalState }) => {
                 </p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {images.map((image) => (
-                    <div
-                        key={image.id}
-                        className="cursor-pointer hover:scale-105 transition-all duration-200"
-                        onClick={(e) => {
-                            e.stopPropagation()
-                            setImageModalState((pre) => ({
-                                ...pre,
-                                open: true,
-                                imgSrc: image.imageUrl,
-                                prompt: image.prompt,
-                            }))
-                        }}
-                    >
-                        <img
+                {generatedImages.length > 0 &&
+                    generatedImages.map((image) => (
+                        <div
                             key={image.id}
-                            className="h-auto w-80 rounded-lg"
-                            src={image.imageUrl}
-                            alt={image.prompt}
-                        />
-                    </div>
-                ))}
+                            className="cursor-pointer hover:scale-105 transition-all duration-200"
+                            onClick={(e) => {
+                                e.stopPropagation()
+                                setImageModalState((pre) => ({
+                                    ...pre,
+                                    open: true,
+                                    imgSrc: image.imageUrl,
+                                    prompt: image.prompt,
+                                }))
+                            }}
+                        >
+                            <img
+                                key={image.id}
+                                className="h-auto w-80 rounded-lg"
+                                src={image.imageUrl}
+                                alt={image.prompt}
+                            />
+                        </div>
+                    ))}
+                {isFetching && (
+                    <>
+                        {[1, 2, 3, 4, 5, 6].map((ele) => (
+                            <div
+                                key={ele}
+                                className="h-80 w-80 bg-gray-200 rounded-lg dark:bg-gray-700 animate-pulse"
+                            ></div>
+                        ))}
+                    </>
+                )}
             </div>
         </div>
     )
