@@ -8,11 +8,12 @@
   "scripts": {
     "test": "jest --detectOpenHandles --forceExit",
     "lint": "eslint . --ext .ts",
-    "build": "tsc --project ./",
-    "start": "nodemon",
+    "dev": "nodemon",
     "dbpush": "yarn prisma db push",
     "client": "yarn prisma generate",
-    "studio": "yarn prisma studio"
+    "studio": "yarn prisma studio",
+    "start": "node ./build/app.js",
+    "build": "yarn install && tsc --project ./ && cd client && yarn install && yarn build"
   },
   "dependencies": {
     "@prisma/client": "^4.13.0",
