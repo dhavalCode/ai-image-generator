@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import FileSaver from 'file-saver'
 import { copyImageToClipboard } from 'copy-image-clipboard'
 import classNames from 'classnames'
-import { ImageModalState } from './types'
+import { ImageModalState } from '../types/types'
 
 // ------------------------------------------------------------
 

@@ -47,8 +47,6 @@ const SizeSelector: React.FC<SizeSelectorProps> = ({
                 className={`${
                     open ? 'block' : 'hidden'
                 } absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none transition ease-out duration-300`}
-                role="menu"
-                onBlur={() => handleClose()}
             >
                 <ul className="py-1" role="none">
                     {IMAGE_SIZES.map((size) => (

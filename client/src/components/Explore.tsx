@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { Image, ImageModalState } from '../types'
-import ImageService from '../../services/image.service'
-import { removeDuplicatesById } from '../../utils'
+import { Image, ImageModalState } from '../types/types'
+import ImageService from '../services/image.service'
+import { removeDuplicatesById } from '../utils'
 
 // ------------------------------------------------------------
 
@@ -62,7 +62,7 @@ const Explore: React.FC<ImageModalProps> = ({ setImageModalState }) => {
     return (
         <div className="container mx-auto max-w-screen-xl mt-14">
             <div className="mb-5">
-                <h2 className="animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent text-4xl font-black">
+                <h2 className="animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent text-3xl font-bold">
                     Explore
                 </h2>
 

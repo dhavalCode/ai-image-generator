@@ -1,41 +1,56 @@
 import { useState } from 'react'
 import Header from '../components/Header'
 import SizeSelector from '../components/SizeSelector'
-import Explore from '../components/sections/Explore'
+import Explore from '../components/Explore'
 import { IMAGE_SIZES } from '../constant'
 import { getSurprisePrompt } from '../utils'
 import imageService from '../services/image.service'
 import ImageModal from '../components/ImageModal'
-import { ImageModalState } from '../components/types'
+import { ImageModalState } from '../types/types'
 import classNames from 'classnames'
+import ErrorModal from '../components/ErrorModal'
+
+// ------------------------------------------------------------
 
 function Home() {
     const [sizeValue, setSizeValue] = useState(IMAGE_SIZES[0].value)
+    
     const [IsGenerating, setIsGenerating] = useState(false)
+
     const [imageModalState, setImageModalState] = useState<ImageModalState>({
         imgSrc: null,
         open: false,
         prompt: '',
     })
+    const [errorModelOpen, setErrorModelOpen] = useState(false)
+
     const [prompt, setPrompt] = useState('')
 
     const generateImage = async () => {
-        setIsGenerating(true)
-        const res = await imageService.generateImage({
-            prompt,
-            size: sizeValue,
-        })
-        if (res.status === 201 || res.status === 200) {
-            const imageUrl = res?.data?.data?.imageUrl
+        try {
+            setIsGenerating(true)
+            const res = await imageService.generateImage({
+                prompt,
+                size: sizeValue,
+            })
 
-            setImageModalState((pre) => ({
-                ...pre,
-                imgSrc: imageUrl,
-                open: true,
-                prompt: prompt,
-            }))
+            setIsGenerating(false)
+
+            if (res.status === 201 || res.status === 200) {
+                const imageUrl = res?.data?.data?.imageUrl
+
+                setImageModalState((pre) => ({
+                    ...pre,
+                    imgSrc: imageUrl,
+                    open: true,
+                    prompt: prompt,
+                }))
+            } else {
+                setErrorModelOpen(true)
+            }
+        } catch (error) {
+            setErrorModelOpen(true)
         }
-        setIsGenerating(false)
     }
 
     return (
@@ -93,12 +108,17 @@ function Home() {
                 </div>
             </div>
             <Explore setImageModalState={setImageModalState} />
+            
             {/* footer spacer  */}
             <div className="mb-16"></div>
+
+            {/* Modal  */}
+
             <ImageModal
                 dialogState={imageModalState}
                 setDialogState={setImageModalState}
             />
+            <ErrorModal open={errorModelOpen} setIsOpen={setErrorModelOpen} />
         </>
     )
 }
