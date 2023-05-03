@@ -2,12 +2,12 @@ import axiosLib from 'axios'
 
 // axios Setup
 
-const hostName = window.location.hostname.includes('localhost')
-    ? 'http://localhost:8080'
-    : window.location.host
+const baseURL = window.location.hostname.includes('localhost')
+    ? 'http://localhost:8080/api'
+    : '/api'
 
 const axios = axiosLib.create({
-    baseURL: `${hostName}/api`,
+    baseURL,
 })
 
 export default axios
