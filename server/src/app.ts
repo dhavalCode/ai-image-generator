@@ -21,9 +21,11 @@ app.disable('x-powered-by')
 
 app.use(express.json())
 
-app.use(express.static('public'))
+// app.use(express.static('public'))
 
 app.use(cors())
+
+app.use('/api/image', imageRouter)
 
 if (process.env.NODE_ENV == 'production') {
   app.use((req, res, next) => {
@@ -40,7 +42,6 @@ if (process.env.NODE_ENV == 'production') {
     res.sendFile(path.resolve(__dirname, '../../client', 'dist', 'index.html'))
   })
 }
-app.use('/api/image', imageRouter)
 
 // app.use(errorHandler)
 
