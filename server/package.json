@@ -10,10 +10,10 @@
     "lint": "eslint . --ext .ts",
     "dev": "nodemon",
     "dbpush": "yarn prisma db push",
-    "client": "yarn prisma generate",
+    "generate": "yarn prisma generate",
     "studio": "yarn prisma studio",
     "start": "node ./build/app.js",
-    "build": "yarn install && tsc --project ./"
+    "build": "yarn install && yarn generate && tsc --project ./"
   },
   "dependencies": {
     "@prisma/client": "^4.13.0",
