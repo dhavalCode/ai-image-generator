@@ -2,14 +2,15 @@
     "version": 2,
     "builds": [
         {
-            "src": "./build/app.js",
-            "use": "@vercel/node"
+            "src": "build/app.js",
+            "use": "@vercel/node",
+            "config": { "includeFiles": ["build/**"] }
         }
     ],
-    "rewrites": [
+    "routes": [
         {
-            "source": "/(.*)",
-            "destination": "/build/app.js"
+            "src": "/(.*)",
+            "dest": "build/app.js"
         }
     ]
 }
