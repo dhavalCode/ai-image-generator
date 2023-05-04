@@ -13,7 +13,7 @@
     "client": "yarn prisma generate",
     "studio": "yarn prisma studio",
     "start": "node ./build/app.js",
-    "build": "yarn install && tsc --project ./ && cd .. && cd client && yarn install && yarn build"
+    "build": "yarn install && tsc --project ./"
   },
   "dependencies": {
     "@prisma/client": "^4.13.0",

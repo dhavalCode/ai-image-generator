@@ -1,5 +1,4 @@
 import express, { Application } from 'express'
-import path from 'path'
 import cors from 'cors'
 // config
 import { validateEnv } from './config/config'
@@ -27,21 +26,7 @@ app.use(cors())
 
 app.use('/api/image', imageRouter)
 
-if (process.env.NODE_ENV == 'production') {
-  app.use((req, res, next) => {
-    if (req.header('x-forwarded-proto') !== 'https') {
-      res.redirect(`https://${req.header('host')}${req.url}`)
-    } else {
-      next()
-    }
-  })
-
-  app.use(express.static(path.join(__dirname, '../../client', 'dist')))
-
-  app.get('/*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../../client', 'dist', 'index.html'))
-  })
-}
+app.use('/health', (req, res) => res.json({ message: ' Server is running...' }))
 
 // app.use(errorHandler)
 
