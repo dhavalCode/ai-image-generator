@@ -3,11 +3,10 @@
 ## Text to image Generator with DALL·E 2
 
 <p align="center">
-    <img src="https://s11.gifyu.com/images/ezgif.com-video-to-gifd1a6c1efa6a5a163.gif"></img>
+    <img src="./image/intro.gif"></img>
 </p>
 
 ### Give your prompt and see the magic !
-
 
 ## Live 🚀
 
@@ -52,7 +51,7 @@ npm start
 - Create ENV File
 
 ```bash
-- ai-image-generator 
+- ai-image-generator
   - server
     - node_modules
     - public
