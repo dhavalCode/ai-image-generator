@@ -3,7 +3,7 @@
 ## Text to image Generator with DALL·E 2
 
 <p align="center">
-    <img src="./image/intro.gif"></img>
+    <img src="https://s12.gifyu.com/images/ezgif.com-optimize1442d3fee1d7b4bc.gif"></img>
 </p>
 
 ### Give your prompt and see the magic !
