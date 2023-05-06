@@ -8,10 +8,8 @@
   "scripts": {
     "test": "jest --detectOpenHandles --forceExit",
     "lint": "eslint . --ext .ts",
-    "dev": "nodemon",
-    "ts-build": "tsc --project ./",
-    "start": "nodemon",
-    "build": "yarn install && cd .. && cd client && yarn install && yarn build"
+    "build": "tsc --project ./",
+    "start": "nodemon"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
