@@ -14,7 +14,7 @@ export const fetchAllImages = async (
     const limit = _req.query['limit'] || 8
 
     const skip = Number(limit) * (Number(page) - 1)
-    
+
     const images = await findAllImages(+limit, skip)
 
     ResponseHandler.success(res, images)
@@ -72,7 +72,7 @@ export const generateImage = async (
     const uploadedImage = await cloudinary.uploader.upload(image || '')
 
     await createImage({
-      imageUrl: uploadedImage.url,
+      imageUrl: uploadedImage.url.replace(/^http:/, 'https:'),
       prompt,
     })
 

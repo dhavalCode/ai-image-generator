@@ -54,7 +54,7 @@ const generateImage = async (req, res) => {
         }
         const uploadedImage = await config_1.cloudinary.uploader.upload(image || '');
         await (0, image_service_1.createImage)({
-            imageUrl: uploadedImage.url,
+            imageUrl: uploadedImage.url.replace(/^http:/, 'https:'),
             prompt,
         });
         responseHandler_1.default.created(res, { imageUrl: uploadedImage.url });

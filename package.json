@@ -6,12 +6,12 @@
   "author": "Dhaval Patel",
   "license": "MIT",
   "scripts": {
-    "ts-build": "cd server && rimraf build && yarn build",
+    "server-build": "cd server && rimraf build && yarn build",
     "client-build": "cd client && yarn install && rimraf dist && yarn build",
     "add-to-stage": "git add ."
   },
   "pre-commit": [
-    "ts-build",
+    "server-build",
     "client-build",
     "add-to-stage"
   ],
