@@ -60,15 +60,15 @@ const Explore: React.FC<ImageModalProps> = ({ setImageModalState }) => {
     }
 
     return (
-        <div className="container mx-auto max-w-screen-xl mt-14">
+        <div className="container mx-auto max-w-screen-xl mt-16 px-3">
             <div className="mb-5">
                 <h2 className="animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent text-3xl font-bold">
                     Explore
                 </h2>
 
-                <p className="text-neutral-900">
-                    Discover the endless possibilities of computer-generated
-                    imagery
+                <p className="mt-2 text-xs sm:text-sm">
+                    So Far, Our platform has produced countless stunning images.
+                    Be amazed by what it can do for You.
                 </p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

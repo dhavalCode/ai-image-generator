@@ -2,7 +2,7 @@
   "name": "ai-image",
   "version": "1.0.0",
   "main": "./src/app.ts",
-  "repository": "https://github.com/dhavalCode/ai-image",
+  "repository": "https://github.com/dhavalCode/ai-image-generator",
   "author": "Dhaval Patel",
   "license": "MIT",
   "scripts": {

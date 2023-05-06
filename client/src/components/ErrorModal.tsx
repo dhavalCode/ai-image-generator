@@ -50,7 +50,7 @@ const ErrorModal: React.FC<ErrorModalProps> = ({ open, setIsOpen }) => {
             >
                 <div className="modal-box relative" ref={modalRef}>
                     <label
-                        className="absolute btn-ghost btn-circle btn btn-sm btn-primary right-2 top-2 hover:scale-105 transition-all duration-150"
+                        className="absolute btn-ghost btn-circle btn btn-sm text-lg btn-primary right-3 top-3 hover:scale-105 transition-all duration-150"
                         onClick={handleClose}
                     >
                         ✕

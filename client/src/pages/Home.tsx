@@ -14,7 +14,7 @@ import ErrorModal from '../components/ErrorModal'
 
 function Home() {
     const [sizeValue, setSizeValue] = useState(IMAGE_SIZES[0].value)
-    
+
     const [IsGenerating, setIsGenerating] = useState(false)
 
     const [imageModalState, setImageModalState] = useState<ImageModalState>({
@@ -56,8 +56,8 @@ function Home() {
     return (
         <>
             <Header />
-            <div className="container mx-auto max-w-screen-xl">
-                <h1 className="mt-24 pb-7 animate-text text-center bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent text-6xl font-black">
+            <div className="container mx-auto max-w-screen-xl px-2">
+                <h1 className="mt-16 pb-7 sm:mt-20 animate-text text-center bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent text-5xl sm:7xl font-black">
                     Text to image with AI Image Generator
                 </h1>
                 <p className="text-center">
@@ -65,26 +65,28 @@ function Home() {
                     breathtaking power of computer-generated imagery!
                 </p>
                 <div className="max-w-screen-xl mt-10 mx-auto">
-                    <div className="mb-6 flex items-center space-x-7">
-                        <input
-                            type="text"
-                            value={prompt}
-                            placeholder="Describe What you want the AI draw"
-                            onChange={(e) => setPrompt(e.target.value)}
-                            className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        />
-                        <SizeSelector
-                            value={sizeValue}
-                            onValueChange={(value) => {
-                                setSizeValue(value)
-                            }}
-                        />
+                    <div className="mb-6 flex space-y-5 flex-col sm:flex-row sm:items-baseline sm:space-x-5">
+                        <div className="flex w-full row space-x-2 items-center">
+                            <input
+                                type="text"
+                                value={prompt}
+                                placeholder="Describe What you want the AI draw"
+                                onChange={(e) => setPrompt(e.target.value)}
+                                className="block w-full p-4 text-gray-700 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-purple-500"
+                            />
 
+                            <SizeSelector
+                                value={sizeValue}
+                                onValueChange={(value) => {
+                                    setSizeValue(value)
+                                }}
+                            />
+                        </div>
                         <button
                             type="button"
                             onClick={generateImage}
                             className={classNames(
-                                'text-white btn capitalize bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2',
+                                'text-white btn capitalize border-none bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-2 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center',
                                 { 'btn-disabled': prompt === '' },
                                 { loading: IsGenerating }
                             )}
@@ -92,12 +94,12 @@ function Home() {
                             {IsGenerating ? 'Generating...' : 'Generate'}
                         </button>
                     </div>
-                    <div>
-                        <h2 className="inline-block font-bold mr-2">
+                    <div className="pl-1">
+                        <h2 className="inline-block mr-2 font-bold text-sm sm:text-base">
                             No Inspiration ? Try &rArr;
                         </h2>
                         <button
-                            className="btn btn-sm btn-outline capitalize"
+                            className="btn btn-xs sm:btn-sm btn-outline capitalize"
                             onClick={() => {
                                 setPrompt(getSurprisePrompt(prompt))
                             }}
@@ -108,7 +110,7 @@ function Home() {
                 </div>
             </div>
             <Explore setImageModalState={setImageModalState} />
-            
+
             {/* footer spacer  */}
             <div className="mb-16"></div>
 

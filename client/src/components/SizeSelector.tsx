@@ -26,7 +26,7 @@ const SizeSelector: React.FC<SizeSelectorProps> = ({
                 <button
                     type="button"
                     onClick={() => handleOpen()}
-                    className="inline-flex w-full mt-0 justify-center gap-x-1.5 rounded-md bg-white px-3 py-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                    className="inline-flex w-full mt-0 justify-center gap-x-1.5 rounded-md bg-white px-3 py-[1.12rem] text-sm font-semibold text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
                 >
                     {value}
                     <svg

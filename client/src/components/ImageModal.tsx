@@ -101,7 +101,7 @@ const ImageModal: React.FC<ImageModalProps> = ({
             >
                 <div className="modal-box relative" ref={modalRef}>
                     <label
-                        className="absolute btn-ghost btn-circle btn btn-sm btn-primary right-2 top-2 hover:scale-105 transition-all duration-150"
+                        className="absolute btn-ghost btn-circle btn btn-sm text-lg btn-primary right-3 top-3 hover:scale-105 transition-all duration-150"
                         onClick={handleClose}
                     >
                         ✕
@@ -124,7 +124,7 @@ const ImageModal: React.FC<ImageModalProps> = ({
                         {isCopied ? (
                             <button
                                 type="button"
-                                className="btn gap-2 disabled capitalize"
+                                className="btn btn-ghost gap-2 disabled capitalize bg-purple-500 border-none hover:bg-purple-500 text-white"
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -143,7 +143,7 @@ const ImageModal: React.FC<ImageModalProps> = ({
                         ) : (
                             <button
                                 type="button"
-                                className="btn gap-2 capitalize"
+                                className="btn gap-2 capitalize btn-outline border border-purple-600 hover:bg-purple-500 text-purple-600"
                                 onClick={() => handleCopyImage(imgSrc)}
                             >
                                 <svg
@@ -165,7 +165,7 @@ const ImageModal: React.FC<ImageModalProps> = ({
                         {isDownloaded ? (
                             <button
                                 type="button"
-                                className="btn gap-2 disabled capitalize"
+                                className="btn gap-2 disabled  capitalize bg-purple-500 border-none hover:bg-purple-500 text-white"
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -184,7 +184,7 @@ const ImageModal: React.FC<ImageModalProps> = ({
                         ) : (
                             <button
                                 type="button"
-                                className="btn gap-2 capitalize"
+                                className="btn gap-2 capitalize border-none bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-2 focus:outline-none focus:ring-purple-200"
                                 onClick={() => handleDownload(imgSrc)}
                             >
                                 <svg

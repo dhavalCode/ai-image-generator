@@ -5,7 +5,7 @@ import logoImg from '../assets/logo.png'
 function Header() {
     return (
         <header>
-            <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
+            <nav className="bg-white border-gray-200 px-4 lg:px-6 py-3">
                 <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
                     <a
                         href="https://github.com/dhavalCode/ai-image-generator"
@@ -32,7 +32,7 @@ function Header() {
                         </a>
                         <a
                             href="https://github.com/dhavalCode/ai-image-generator"
-                            className="ml-4"
+                            className="ml-4 hidden sm:block"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
