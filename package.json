@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "server-build": "cd server && rimraf build && yarn build",
-    "client-build": "cd client && yarn install && rimraf dist && yarn build",
+    "client-build": "cd client && rimraf dist && yarn build",
     "add-to-stage": "git add ."
   },
   "pre-commit": [
