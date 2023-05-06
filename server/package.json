@@ -10,8 +10,8 @@
     "lint": "eslint . --ext .ts",
     "dev": "nodemon",
     "ts-build": "tsc --project ./",
-    "start": "node ./build/app.js",
-    "build": "yarn install && yarn ts-build && cd .. && cd client && yarn install && yarn build"
+    "start": "nodemon",
+    "build": "yarn install && cd .. && cd client && yarn install && yarn build"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
