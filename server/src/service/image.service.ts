@@ -1,25 +1,20 @@
-import { Image, PrismaClient } from '@prisma/client'
-import { ImageInput } from '../types/Image'
+import { ImageInput, ImageOutput } from '../types/Image'
+import Image from '../models/image.schema'
 
-const prisma = new PrismaClient()
-
-export const createImage = async (input: ImageInput): Promise<Image> => {
+export const createImage = async (input: ImageInput): Promise<ImageOutput> => {
   const { imageUrl, prompt } = input
-  return prisma.image.create({
-    data: {
-      imageUrl,
-      prompt,
-    },
+
+  const newImage = new Image({
+    imageUrl,
+    prompt,
   })
+  
+  return newImage.save() as Promise<ImageOutput>
 }
 
 export const findAllImages = async (
   limit: number,
-  offset: number
-): Promise<Image[]> => {
-  return prisma.image.findMany({
-    skip: offset,
-    take: limit,
-    orderBy: { createdAt: 'desc' },
-  })
+  skip: number
+): Promise<unknown[]> => {
+  return Image.find().skip(skip).limit(limit).sort({ createdAt: -1 }).exec()
 }

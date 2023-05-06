@@ -13,13 +13,13 @@ export const fetchAllImages = async (
 
     const limit = _req.query['limit'] || 8
 
-    const offset = Number(limit) * (Number(page) - 1)
-
-    const images = await findAllImages(+limit, offset)
+    const skip = Number(limit) * (Number(page) - 1)
+    
+    const images = await findAllImages(+limit, skip)
 
     ResponseHandler.success(res, images)
   } catch (error) {
-    console.log('Error :', error)
+    // console.log('Error :', error)
     ResponseHandler.serverError(res, error)
   }
 }
@@ -78,7 +78,7 @@ export const generateImage = async (
 
     ResponseHandler.created(res, { imageUrl: uploadedImage.url })
   } catch (error: unknown) {
-    console.log('Error :', error)
+    // console.log('Error :', error)
     ResponseHandler.serverError(res, error)
   }
 }

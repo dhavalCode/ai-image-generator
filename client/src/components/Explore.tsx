@@ -75,7 +75,7 @@ const Explore: React.FC<ImageModalProps> = ({ setImageModalState }) => {
                 {generatedImages.length > 0 &&
                     generatedImages.map((image) => (
                         <div
-                            key={image.id}
+                            key={image._id}
                             className="cursor-pointer hover:scale-105 transition-all duration-200"
                             onClick={(e) => {
                                 e.stopPropagation()
@@ -88,7 +88,7 @@ const Explore: React.FC<ImageModalProps> = ({ setImageModalState }) => {
                             }}
                         >
                             <img
-                                key={image.id}
+                                key={image._id}
                                 className="h-auto w-80 rounded-lg"
                                 src={image.imageUrl}
                                 alt={image.prompt}

@@ -12,12 +12,12 @@ const fetchAllImages = async (_req, res) => {
     try {
         const page = _req.query['page'] || 1;
         const limit = _req.query['limit'] || 8;
-        const offset = Number(limit) * (Number(page) - 1);
-        const images = await (0, image_service_1.findAllImages)(+limit, offset);
+        const skip = Number(limit) * (Number(page) - 1);
+        const images = await (0, image_service_1.findAllImages)(+limit, skip);
         responseHandler_1.default.success(res, images);
     }
     catch (error) {
-        console.log('Error :', error);
+        // console.log('Error :', error)
         responseHandler_1.default.serverError(res, error);
     }
 };
@@ -60,7 +60,7 @@ const generateImage = async (req, res) => {
         responseHandler_1.default.created(res, { imageUrl: uploadedImage.url });
     }
     catch (error) {
-        console.log('Error :', error);
+        // console.log('Error :', error)
         responseHandler_1.default.serverError(res, error);
     }
 };

@@ -1,15 +1,14 @@
-import { PrismaClient } from "@prisma/client";
+import mongoose from 'mongoose'
+import { config } from './config'
 
-const prisma = new PrismaClient();
+// mongodb connection
 
-const dbConnect = async (): Promise<void> => {
-    try {
-        await prisma.$connect();
-        console.log('Database connection established successfully');
-    } catch (error) {
-        console.error('Unable to establish database connection', error);
-        process.exit(1);
-    }
+export const dbConnect = (): void => {
+  mongoose
+    .connect(config.databaseUrl, {})
+    .then(() => console.log(`Database Connected Successfully`))
+    .catch((err) => {
+      console.log('Database Connection error => ', err)
+      process.exit(1)
+    })
 }
-
-export default dbConnect

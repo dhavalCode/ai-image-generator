@@ -5,7 +5,7 @@ export interface ImageModalState {
 }
 
 export type Image = {
-    id: string
+    _id: string
     prompt: string
     imageUrl: string
     createdAt : string

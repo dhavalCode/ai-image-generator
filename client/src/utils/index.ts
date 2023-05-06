@@ -10,13 +10,13 @@ export const getSurprisePrompt = (prompt: string): string => {
 }
 
 interface Identifiable {
-    id: number | string
+    _id: number | string
 }
 
 export const removeDuplicatesById = <T extends Identifiable>(arr: T[]): T[] => {
     return Object.values(
         arr.reduce((acc, current) => {
-            acc[current.id] = current
+            acc[current._id] = current
             return acc
         }, {} as Record<string | number, T>)
     )
