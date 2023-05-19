@@ -71,12 +71,14 @@ export const generateImage = async (
 
     const uploadedImage = await cloudinary.uploader.upload(image || '')
 
+    const imageUrl = uploadedImage.url.replace(/^http:/, 'https:')
+
     await createImage({
-      imageUrl: uploadedImage.url.replace(/^http:/, 'https:'),
+      imageUrl,
       prompt,
     })
 
-    ResponseHandler.created(res, { imageUrl: uploadedImage.url })
+    ResponseHandler.created(res, { imageUrl })
   } catch (error: unknown) {
     // console.log('Error :', error)
     ResponseHandler.serverError(res, error)

@@ -53,11 +53,12 @@ const generateImage = async (req, res) => {
             responseHandler_1.default.serverError(res, '', 'Something went wrong while generating image');
         }
         const uploadedImage = await config_1.cloudinary.uploader.upload(image || '');
+        const imageUrl = uploadedImage.url.replace(/^http:/, 'https:');
         await (0, image_service_1.createImage)({
-            imageUrl: uploadedImage.url.replace(/^http:/, 'https:'),
+            imageUrl,
             prompt,
         });
-        responseHandler_1.default.created(res, { imageUrl: uploadedImage.url });
+        responseHandler_1.default.created(res, { imageUrl });
     }
     catch (error) {
         // console.log('Error :', error)
