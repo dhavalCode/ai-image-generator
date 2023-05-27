@@ -95,16 +95,13 @@ const Explore: React.FC<ImageModalProps> = ({ setImageModalState }) => {
                             />
                         </div>
                     ))}
-                {isFetching && (
-                    <>
-                        {[1, 2, 3, 4, 5, 6].map((ele) => (
-                            <div
-                                key={ele}
-                                className="h-80 w-80 bg-gray-200 rounded-lg dark:bg-gray-700 animate-pulse"
-                            ></div>
-                        ))}
-                    </>
-                )}
+                {isFetching &&
+                    [1, 2, 3, 4, 5, 6, 7, 8].map((ele) => (
+                        <div
+                            key={ele}
+                            className="h-48 lg:h-80 bg-gray-200 rounded-lg dark:bg-gray-700 animate-pulse"
+                        ></div>
+                    ))}
             </div>
         </div>
     )
