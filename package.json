@@ -6,17 +6,11 @@
   "author": "Dhaval Patel",
   "license": "MIT",
   "scripts": {
-    "server-build": "cd server && rimraf build && yarn build",
-    "client-build": "cd client && rimraf dist && yarn build",
-    "add-to-stage": "git add ."
+    "server-build": "cd server && yarn install && rimraf build && yarn build",
+    "client-build": "cd client && yarn install && rimraf dist && yarn build",
+    "build": "yarn install && yarn client-build && yarn server-build"
   },
-  "pre-commit": [
-    "server-build",
-    "client-build",
-    "add-to-stage"
-  ],
   "devDependencies": {
-    "pre-commit": "^1.2.2",
     "rimraf": "^5.0.0"
   }
 }
