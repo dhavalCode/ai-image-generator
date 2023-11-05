@@ -40,14 +40,6 @@ app.use('/api/image', imageRouter)
 
 app.use('/health', (req, res) => res.json({ message: ' Server is running...' }))
 
-// static serve
-
-app.use(express.static(path.join(__dirname, '../../client', 'dist')))
-
-app.get('/*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../../client', 'dist', 'index.html'))
-})
-
 app.listen(port, () => {
   console.log(`🚀 Server running at http://localhost:${port}`)
 })
