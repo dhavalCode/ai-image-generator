@@ -2,9 +2,8 @@ import axiosLib from 'axios'
 
 // axios Setup
 
-const baseURL = window.location.hostname.includes('localhost')
-    ? 'http://localhost:8080/api'
-    : '/api'
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+const baseURL = process.env.REACT_APP_API_HOST_URL!
 
 const axios = axiosLib.create({
     baseURL,
